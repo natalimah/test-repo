@@ -1,0 +1,163 @@
+body{
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 0;
+  color: rgb(0, 0, 0);
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.header{
+  background-color: rgb(29, 29, 29);
+  position: sticky; top: 0;
+  padding-top: 16px;
+  padding-bottom: 6px;
+}
+
+#main_icon{
+  width: 4%;
+  height: 7.2%;
+  padding-left: 20px;
+  float:left
+}
+
+#main_header{
+  padding-left: 110px;
+  color:white;
+}
+
+.navigation{
+  position: fixed;
+  margin-bottom: 0;
+  width: 15%;
+  margin-left: 0;
+  background-color:rgb(163, 203, 255);
+  height: 100%;
+  color: white
+}
+
+#nav_icon{
+  width: 12%;
+  height: 4%;
+  padding-top: 15px;
+  padding-left: 10px;
+  float:left
+}
+
+#nav_header{
+  padding-left: 50px;
+  text-decoration: underline;
+}
+
+#nav_menu{
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+#nav_menu li{
+  list-style-type: none;
+  margin-bottom: 5px;
+}
+
+#nav_menu a{
+  color:white;
+  text-decoration: none;
+}
+
+.body{
+  width: 85%;
+  float: right;
+}
+
+.text{
+  margin-left: 25px;
+}
+
+.code{
+  width: 50%;
+  background-color: rgb(56, 50, 50);
+  color: white;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.code p{
+  padding-left: 10px;
+}
+
+.info{
+  width: 50%;
+  background-color: rgb(255, 255, 255);
+  color: white;
+  border-radius: 5px;
+  padding: 2px;
+  background-color: rgba(122, 147, 254, 1);
+}
+
+.info_icon{
+  padding:10px;
+  width: 4%;
+  height: 3%;
+  float:left;
+}
+
+.info_text{
+  padding-left:40px;
+}
+
+.products_table{
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+.products_table th{
+  background-color: rgb(56, 56, 56);
+  font-size: 24px;
+  color:white;
+  padding: 15px;
+  text-align: center;
+}
+
+.products_table td{
+  font-size: 16px;
+  padding: 7px;
+  text-align: center;
+  white-space: nowrap;
+  border-bottom: 1px solid rgb(214, 214, 214);
+  transition: white 1s ease-in-out;
+}
+
+.products_table tr:hover{
+  transition-duration: 500ms;
+  background-color: rgb(236, 236, 236);
+}
+
+.products_table tr:not(hover){
+  transition-duration: 600ms;
+  background-color: rgb(255, 255, 255);
+}
+
+form label{
+  font-size:24px;
+  margin-bottom: 20px;
+}
+
+form input{
+  width: 300px;
+  height: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(197, 197, 197);
+}
+
+form button{
+  width: 300px;
+  height: 35px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: rgb(95, 212, 95);
+  border: 1px solid rgb(56, 160, 70);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}

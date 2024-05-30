@@ -1,0 +1,14 @@
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: flask-configmap
+data:
+  DB_HOST: mongo
+  DB_PORT: "27017"
+---
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: express-configmap
+data:
+  ME_CONFIG_MONGODB_URL: mongodb://root:password@mongo:27017/

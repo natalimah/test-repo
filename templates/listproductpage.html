@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <link rel= "stylesheet" type= "text/css" href= "../static/styles/mainstyle.css">
+    </head>
+    <body>
+        <div class="header">
+            <img id="main_icon" src="../static/images/worldwide.png">
+            <h1 id="main_header">Little World</h1>
+        </div>
+        <div class="navigation">
+            <img id="nav_icon" src="../static/images/navigation.png">
+            <h1 id="nav_header">Navigation</h1>
+            <ul id="nav_menu">
+                <li><a href="{{ url_for('main_page')}}">Get Started</a></li>
+                <li><a href="{{ url_for('api_page')}}">API Guide</a></li>
+                <li><a href="{{ url_for('list_page')}}">List Product</a></li>
+                <li><a href="{{ url_for('add_page')}}">Add Product</a></li>
+                <li><a href="{{ url_for('delete_page')}}">Delete Product</a></li>
+            </ul>
+        </div>
+        <div class="body">
+            <div class="text">
+                <h1>Avalible Products</h1>
+                <table class="products_table">
+                    <tr>
+                        <th>Product name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                    {%for product in products%}
+                    <tr>
+                        <td>{{product['name']}}</td>
+                        <td>{{product['price']}}</td>
+                        <td>{{product['quantity']}}</td>
+                    </tr>
+                    {%endfor%}
+                </table>                
+            </div>
+        </div>
+    </body>
+</html>

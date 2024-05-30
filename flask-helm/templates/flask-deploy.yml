@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.flask.name }}
+  labels:
+    app: {{ .Values.flask.name }}
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: {{ .Values.flask.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.flask.name }}
+    spec:
+      containers:
+      - name: {{ .Values.flask.name }}
+        image: {{ .Values.flask.image }}:{{ .Values.flask.tag }}
+        ports:
+        - containerPort: {{ .Values.flask.port }}
+        envFrom:
+          - configMapRef:
+              name: flask-configmap
+        env:
+          - name: USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: secret
+                key: username
+          - name: PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: secret
+                key: password

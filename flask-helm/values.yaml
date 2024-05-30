@@ -1,0 +1,28 @@
+flask:
+  name: "flask"
+  image: "registry.gitlab.com/roeidalal/flask-project"
+  tag: "latest"
+  port: 80
+  nodeport: 30000
+
+mongo:
+  name: "mongo"
+  image: "mongo"
+  username: "root"
+  password: "password"
+  port: 27017
+
+express:
+  name: "mongo-express"
+  image: "mongo-express"
+  port: 8081
+  nodeport: 30001
+
+volume:
+  storageclass: "gp2"
+  id: "vol-03357b5f162259964"
+  fstype: "ext4"
+  type: "amazonEBS"
+  name: mongo-pv
+  claimname: mongo-pv-claim
+  accessmodes: "ReadWriteOnce"

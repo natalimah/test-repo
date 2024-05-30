@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <link rel= "stylesheet" type= "text/css" href= "../static/styles/mainstyle.css">
+    </head>
+    <body>
+        <div class="header">
+            <img id="main_icon" src="../static/images/worldwide.png">
+            <h1 id="main_header">Little World</h1>
+        </div>
+        <div class="navigation">
+            <img id="nav_icon" src="../static/images/navigation.png">
+            <h1 id="nav_header">Navigation</h1>
+            <ul id="nav_menu">
+                <li><a href="{{ url_for('main_page')}}">Get Started</a></li>
+                <li><a href="{{ url_for('api_page')}}">API Guide</a></li>
+                <li><a href="{{ url_for('list_page')}}">List Product</a></li>
+                <li><a href="{{ url_for('add_page')}}">Add Product</a></li>
+                <li><a href="{{ url_for('delete_page')}}">Delete Product</a></li>
+            </ul>
+        </div>
+        <div class="body">
+            <div class="text">
+                <h1>API Guide</h1>
+                <h2>Preview</h2>
+                <p>
+                    This guide will help you to understand the api and how to use it.<br>
+                    It will help you to make automation and script base on the api.
+                </p>
+                <h2>Get</h2>
+                <p>
+                    When you want to list exsiting data you have two options.<br>
+                    I. you can list all the data by curl the "/api/products" route.
+                </p>
+                <div class="code">
+                    <p>curl $server_ip/api/products</p>
+                </div>
+                <p>
+                    II. On the other hand you can get data of spesific product by curl same route with the product name.<br>
+                </p>
+                <div class="code">
+                    <p>curl $server_ip/api/products/$product_name</p>
+                </div>
+                <br>
+                <div class="info">
+                    <img class="info_icon" src="../static/images/info.png">
+                    <p class="info_text">you can also use your browser to reach the route</p>
+                </div>
+            </div>
+        </div>
+      
+    </body>
+</html>

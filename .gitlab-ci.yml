@@ -1,0 +1,42 @@
+stages:
+  - prerequisites
+  - build
+  - deploy
+
+variables:
+  ENV: prod
+  IMAGE: registry.gitlab.com/roeidalal/flask-project
+
+install_docker_engine:
+  stage: prerequisites
+  tags: 
+    - $ENV
+  script:
+    - sudo amazon-linux-extras install docker -y
+    - sudo systemctl start docker
+    - sudo systemctl enable docker
+    - sudo usermod -a -G docker gitlab-runner
+    - sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+    - sudo chmod +x /usr/local/bin/docker-compose
+    - sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+  when: manual
+
+
+gitlab_image_push:
+  stage: build
+  tags:
+    - $ENV
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $IMAGE .
+    - docker push $IMAGE
+  when: manual
+
+deploy_application:
+  stage: deploy
+  tags:
+    - $ENV
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker-compose up -d
+  when: manual
